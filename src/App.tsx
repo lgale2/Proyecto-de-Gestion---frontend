@@ -22,6 +22,12 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import CustomerList from './pages/customers/CustomerList';
+import CustomerEdit from './pages/customers/CustomerEdit';
+import EmployeeList from './pages/employees/EmployeeList';
+import EmployeeEdit from './pages/employees/EmployeeEdit';
+import SupplierList from './pages/suppliers/SupplierList';
+import SupplierEdit from './pages/suppliers/SupplierEdit';
 
 setupIonicReact();
 
@@ -33,10 +39,33 @@ const App: React.FC = () => {
           <Menu />
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/folder/Inbox" />
+              <Redirect to="/page/Clientes" />
             </Route>
-            <Route path="/folder/:name" exact={true}>
-              <Page />
+    
+
+            <Route path="/page/Clientes" exact={true}>
+              <CustomerList/>
+            </Route>
+
+            <Route path="/page/Cliente/:id" exact={true}>
+              <CustomerEdit/>
+            </Route>
+
+            <Route path="/page/Empleados" exact={true}>
+              <EmployeeList/>
+            </Route>
+
+            <Route path="/page/Empleado/:id" exact={true}>
+              <EmployeeEdit/>
+            </Route>
+
+            
+            <Route path="/page/Proveedores" exact={true}>
+              <SupplierList/>
+            </Route>
+
+            <Route path="/page/Proveedor/:id" exact={true}>
+              <SupplierEdit/>
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>
